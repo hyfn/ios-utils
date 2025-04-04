@@ -20,6 +20,17 @@ public enum LoadingState<Error: Swift.Error> {
 			return false
 		}
 	}
+    
+    public static func ==(lhs: LoadingState, rhs: LoadingState) -> Bool {
+        switch (lhs, rhs) {
+        case (.default, .default):
+            return true
+        case (.loading, .loading):
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 public extension Action {
